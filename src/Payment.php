@@ -14,6 +14,14 @@ class Payment {
     
     private $currency;
     
+    private $payerName;
+    
+    private $payerSurname;
+    
+    private $payerEmail;
+    
+    private $successUrl;
+    
     public function __construct($dotPayUrl = "https://ssl.dotpay.pl/pay.php") {
         $this->dotPayUrl = $dotPayUrl;
     }
