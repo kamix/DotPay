@@ -78,6 +78,18 @@ class Payment {
         return $this;
     }
     
+    public function setPayerSurname($payerSurname) {
+        $this->payerSurname = $payerSurname;
+        
+        return $this;
+    }
+    
+    public function setPayerEmail($payerEmail) {
+        $this->payerEmail = $payerEmail;
+        
+        return $this;
+    }
+    
     /**
      * 
      * @return string
@@ -92,6 +104,18 @@ class Payment {
         
         if ($this->description !== null) {
             $baseUrl .= '&opis="' . $this->description . '"';
+        }
+        
+        if ($this->payerName !== null) {
+            $baseUrl .= '&imie="' . $this->payerName . '"';
+        }
+        
+        if ($this->payerSurname !== null) {
+            $baseUrl .= '&nazwisko="' . $this->payerSurname . '"';
+        }
+        
+        if ($this->payerEmail !== null) {
+            $baseUrl .= '&email="' . $this->payerEmail . '"';
         }
         
         return $baseUrl;
