@@ -121,23 +121,23 @@ class Payment {
                 $this->currency);
         
         if ($this->description !== null) {
-            $baseUrl .= '&opis="' . $this->description . '"';
+            $baseUrl .= '&opis=' . $this->description;
         }
         
         if ($this->payerName !== null) {
-            $baseUrl .= '&imie="' . $this->payerName . '"';
+            $baseUrl .= '&imie=' . $this->payerName;
         }
         
         if ($this->payerSurname !== null) {
-            $baseUrl .= '&nazwisko="' . $this->payerSurname . '"';
+            $baseUrl .= '&nazwisko=' . $this->payerSurname;
         }
         
         if ($this->payerEmail !== null) {
-            $baseUrl .= '&email="' . $this->payerEmail . '"';
+            $baseUrl .= '&email=' . $this->payerEmail;
         }
         
         if ($this->successUrl !== null) {
-            $baseUrl .= '&urlc="' . $this->successUrl . '"';
+            $baseUrl .= '&urlc=' . $this->successUrl;
         }
         
         return $baseUrl;
