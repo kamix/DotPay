@@ -92,6 +92,16 @@ class Payment {
     
     /**
      * 
+     * @param string $url
+     * @return \DotPay\Payment
+     */
+    public function setSuccessUrl($url) {
+        $this->successUrl = $url;
+        
+        return $this;
+    }
+    /**
+     * 
      * @return string
      */
     public function generateUrl() {
@@ -116,6 +126,10 @@ class Payment {
         
         if ($this->payerEmail !== null) {
             $baseUrl .= '&email="' . $this->payerEmail . '"';
+        }
+        
+        if ($this->successUrl !== null) {
+            $baseUrl .= '&urlc="' . $this->successUrl . '"';
         }
         
         return $baseUrl;
