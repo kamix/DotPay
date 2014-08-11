@@ -90,6 +90,10 @@ class Payment {
                 $this->amount,
                 $this->currency);
         
+        if ($this->description !== null) {
+            $baseUrl .= '&opis="' . $this->description . '"';
+        }
+        
         return $baseUrl;
     }
 }
