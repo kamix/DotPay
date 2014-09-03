@@ -22,6 +22,10 @@ class Payment {
     
     private $successUrl;
     
+    private $control;
+    
+    private $callbackUrl;
+    
     public function __construct($dotPayUrl = "https://ssl.dotpay.pl/pay.php") {
         $this->dotPayUrl = $dotPayUrl;
     }
@@ -98,6 +102,12 @@ class Payment {
         return $this;
     }
     
+    public function setControl($control) {
+        $this->control = $control;
+        
+        return $this;
+    }
+    
     /**
      * 
      * @param string $url
@@ -108,6 +118,13 @@ class Payment {
         
         return $this;
     }
+    
+    public function setCallbackUrl($url) {
+        $this->callbackUrl = $url;
+        
+        return $this;
+    }
+    
     /**
      * 
      * @return string
@@ -138,6 +155,14 @@ class Payment {
         
         if ($this->successUrl !== null) {
             $baseUrl .= '&urlc=' . $this->successUrl;
+        }
+        
+        if ($this->callbackUrl !== null) {
+            $baseUrl .= '&url=' . $this->callbackUrl;
+        }
+        
+        if ($this->control !== null) {
+            $baseUrl .= '&control=' . $this->control;
         }
         
         return $baseUrl;
